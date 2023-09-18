@@ -1,0 +1,6 @@
+Time : 08:14:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT count(*) FROM main_degree WHERE sl != :sl and 
+
+Time : 06:47:43
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty

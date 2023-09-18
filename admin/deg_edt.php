@@ -63,9 +63,9 @@ $pdo= new MainPDO();
 <div class="row">
 <div class="form-group col-md-12">
 <label>
-<b><font color="#ed2618"></font>Test Type : </b>
+<b><font color="#ed2618"></font>Degree Name : </b>
 </label>
-<input type="text" id="degnm" name="degnm" class="form-control" value="<?php echo $row2[0]['degnm'];?>" style="width:100%" placeholder="Enter Test Type" required>
+<input type="text" id="degnm" name="degnm" class="form-control" value="<?php echo $row2[0]['degnm'];?>" style="width:100%" placeholder="Enter Degree Name" required>
 </div>
 <div class="form-group col-md-12" align="right">
 <br>

@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 if (isset($_REQUEST['pnm'])) {
   $page_title = base64_decode($_REQUEST['pnm']);
 } else {
-  $page_title = "Degree Entry";
+  $page_title = "Course Entry";
 }
 include "membersonly.inc.php";
 $Members  = new isLogged(1);
@@ -68,21 +68,44 @@ function searchForId($id, $array, $chkfld, $sendfld)
             <form class="form-bordered" action="all_submit_page.php" method="POST">
 
               <div class="row">
-                <div class="form-group col-md-12">
+              <div class="form-group col-md-6">
                   <label>
                     <b>
                       <font color="#ed2618">*</font>Degree Name :
                     </b>
                   </label>
-                  <input type="text" id="degnm" name="degnm" class="form-control" value="" style="width:100%" placeholder="Enter Degree Name" required>
+                  <select id="degid" name="degid" class="form-control" required style="width:100%">
+                <option value="">*****Select*****</option>
+                <?php
+                $fld1['sl'] = 0;
+                $op1['sl'] = ">,";
+                $list1  = new Init_Table();
+                $list1->set_table("main_degree", "sl");
+                $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
+                foreach ($row as $value) 
+								{
+                ?>
+                <option value="<?php echo $value['degid'];?>"><?php echo $value['degnm'];?></option>
+                <?php 
+                                }
+                ?>
+            </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>
+                    <b>
+                      <font color="#ed2618">*</font>Course Name :
+                    </b>
+                  </label>
+                  <input type="text" id="crsnm" name="crsnm" class="form-control" value="" style="width:100%" placeholder="Enter Course Name" required>
                 </div>
                 <div class="form-group col-md-12" align="right">
                   <br>
                   <input type="submit" class="btn btn-success" value="SUBMIT">
                 </div>
               </div>
-              <input type="hidden" name="table_name" value="main_degree">
-              <input type="hidden" name="page_name" value="deg.php">
+              <input type="hidden" name="table_name" value="main_course">
+              <input type="hidden" name="page_name" value="crs.php">
 
             </form>
           </div>
@@ -165,14 +188,14 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
 <script>
   function show() {
-    $('#show').load("deg_list.php?sl=").fadeIn('fast');
+    $('#show').load("crs_list.php?sl=").fadeIn('fast');
   }
   $(document).ready(function() {
     show();
   });
   function cal_del(sl){
     if (confirm('Are you sure to delete') == true) {
-      $('#show').load("deg_list.php?sl="+sl).fadeIn('fast');
+      $('#show').load("crs_list.php?sl="+sl).fadeIn('fast');
       alert("deleted sucessfully")
   }  }
 </script>
