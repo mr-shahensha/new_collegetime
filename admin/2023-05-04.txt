@@ -1,2 +1,0 @@
-Time : 11:38:26
-SQLSTATE[HY000] [1049] Unknown database 'pdo'
