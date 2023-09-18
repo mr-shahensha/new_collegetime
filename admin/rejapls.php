@@ -67,7 +67,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                     <div class="box-body" id="shows">
                         <?php
 
-                        $fld1['stat'] = ' ';
+                        $fld1['stat'] = '0';
                         $op1['stat'] = "=,";
 
                         $list1  = new Init_Table();
@@ -86,7 +86,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                 <td width="15%" align="center"><b>Preivous School</b> </td>
                                 <td width="15%" align="center"><b>Madhyamik Marks</b> </td>
                                 <td width="10%" align="center"><b>Applied Stream</b> </td>
-                                <td width="10%" align="center"><b>Action</b> </td>
+                                <!-- <td width="10%" align="center"><b>Action</b> </td> -->
                             </tr>
                             <?php
                             $cnt = 0;
@@ -106,11 +106,11 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                     <td align="center"><?php echo $value['mMarks']; ?></td>
                                     <td align="center"><?php echo $value['strm']; ?></td>
 
-                                    <td align="center">
+                                    <!-- <td align="center">
                                         <button class="btn btn-success btn-xs" onclick="ac('0','<?php echo $sl;?>')">Accept</button>
                                         <button class="btn btn-danger btn-xs" onclick="ac('1','<?php echo $sl;?>')">Reject</button>
 
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php
                             }
@@ -179,23 +179,6 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 
-<script>
-
-
-    function ac(val,sl) {
-//        alert(sl)
-        if(val==1){
-            text='reject';
-        }
-        if(val==0){
-            text='accept';
-        }
-        if (confirm('Are you sure to '+text+' ?')) {
-            $('#shows').load("submit_aplys.php?val=" + val+"&sl="+sl).fadeIn('fast');
-          //  alert(text+"ed sucessfully")
-        }
-    }
-</script>
 
 </body>
 

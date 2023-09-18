@@ -7,18 +7,18 @@ function array_except($array, $keys)
 {
 	return array_diff_key($array, array_flip((array) $keys));
 }
-
 $val=$_REQUEST['val'];
+
 $tbl_nm = $_POST['table_name'];
 $page_name = $_POST['page_name'];
 
 
-	$fld['nm'] = $_POST['nm'];
-	$op['nm'] = "=, and";
-	$fld['num'] = $_POST['num'];
-	$op['num'] = "=, and";
-	$fld['dob'] = $_POST['dob'];
-	$op['dob'] = "=,";
+$fld['nm'] = $_POST['nm'];
+$op['nm'] = "=, and";
+$fld['num'] = $_POST['num'];
+$op['num'] = "=, and";
+$fld['dob'] = $_POST['dob'];
+$op['dob'] = "=,";
 
 $list  = new Init_Table();
 $list->set_table($tbl_nm, "sl");
