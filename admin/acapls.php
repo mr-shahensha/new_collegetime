@@ -86,7 +86,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                 <td width="15%" align="center"><b>Preivous School</b> </td>
                                 <td width="15%" align="center"><b>Madhyamik Marks</b> </td>
                                 <td width="10%" align="center"><b>Applied Stream</b> </td>
-                                <!-- <td width="10%" align="center"><b>Action</b> </td> -->
+                                <td width="10%" align="center"><b>Action</b> </td>
                             </tr>
                             <?php
                             $cnt = 0;
@@ -106,18 +106,18 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                     <td align="center"><?php echo $value['mMarks']; ?></td>
                                     <td align="center"><?php echo $value['strm']; ?></td>
 
-                                    <!-- <td align="center">
-                                        <button class="btn btn-success btn-xs" onclick="ac('0','<?php echo $sl;?>')">Accept</button>
-                                        <button class="btn btn-danger btn-xs" onclick="ac('1','<?php echo $sl;?>')">Reject</button>
+                                    <td align="center">
+                                        <button class="btn btn-success btn-xs" onclick="admsn('<?php echo $sl;?>')">Admission</button>
+                                     
 
-                                    </td> -->
+                                    </td>
                                 </tr>
                             <?php
                             }
                             ?>
 
                         </table>
-
+                                <div id="shows"></div>
                     </div>
                     <!-- /.box body -->
                 </div>
@@ -132,7 +132,12 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
     <strong>Copyright &copy; 2019-2020 </strong> All rights reserved. Designed & Developed By <a href="http://onnetsolution.com">Onnet Solution Infotech Pvt. Ltd.</a>.
 </footer>
+<script>
+    function admsn(sl){
+    $('#show').load("submit_admission.php?sl="+sl).fadeIn('fast');
+  }
 
+</script>
 
 </div>
 <!-- ./wrapper -->

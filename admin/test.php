@@ -1,122 +1,121 @@
 <?php
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
-if(isset($_REQUEST['pnm']))
-{
-$page_title=base64_decode($_REQUEST['pnm']);
-}
-else
-{
-	$page_title="Test Entry";
+if (isset($_REQUEST['pnm'])) {
+  $page_title = base64_decode($_REQUEST['pnm']);
+} else {
+  $page_title = "Test Entry";
 }
 include "membersonly.inc.php";
 $Members  = new isLogged(1);
 include "header.php";
-function searchForId($id, $array,$chkfld,$sendfld) {
+function searchForId($id, $array, $chkfld, $sendfld)
+{
 
-   foreach ($array as $val) 
-   {
-       if ($val[$chkfld]==$id) {
-           return $val[$sendfld];
-       }
-   }
-   return 'root';
+  foreach ($array as $val) {
+    if ($val[$chkfld] == $id) {
+      return $val[$sendfld];
+    }
+  }
+  return 'root';
 }
 ?>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="images/logo.png" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $Members->User_Details->name;?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
       </div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-	  <?php echo include "left_bar.php";?>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+      <div class="pull-left info">
+        <p><?php echo $Members->User_Details->name; ?></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <?php echo include "left_bar.php"; ?>
+  </section>
+  <!-- /.sidebar -->
+</aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        <?php echo $page_title;?>
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><?php echo $page_title;?></li>
-      </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-	<div class="row">
-	<div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title"><?php echo $page_title;?></h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-              <div class="box-body">
-<form class="form-bordered" action="all_submit_page.php" method="POST">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      <?php echo $page_title; ?>
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active"><?php echo $page_title; ?></li>
+    </ol>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $page_title; ?></h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <div class="box-body">
+            <form class="form-bordered" action="all_submit_page.php" method="POST">
 
-<div class="row">
-<div class="form-group col-md-12">
-<label>
-<b><font color="#ed2618"></font>Test Type : </b>
-</label>
-<input type="text" id="ttl" name="ttl" class="form-control" value="" style="width:100%" placeholder="Enter Test Type" required>
-</div>
-<div class="form-group col-md-12" align="right">
-<br>
-<input type="submit" class="btn btn-success" value="SUBMIT">
-</div>
-</div>
-<input type="hidden" name="table_name" value="main_test">	 
-<input type="hidden" name="page_name" value="test.php">  
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>
+                    <b>
+                      <font color="#ed2618"></font>Test Type :
+                    </b>
+                  </label>
+                  <input type="text" id="ttl" name="ttl" class="form-control" value="" style="width:100%" placeholder="Enter Test Type" required>
+                </div>
+                <div class="form-group col-md-12" align="right">
+                  <br>
+                  <input type="submit" class="btn btn-success" value="SUBMIT">
+                </div>
+              </div>
+              <input type="hidden" name="table_name" value="main_test">
+              <input type="hidden" name="page_name" value="test.php">
 
-</form>
-</div>
-<!-- /.box body -->
-</div>
-
-<!-- /.box -->
-</div>  
-	<div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title"><?php echo $page_title;?> List</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-              <div class="box-body" id="show">
-			 
-	
-				    </div>
+            </form>
+          </div>
           <!-- /.box body -->
         </div>
-          <!-- /.box -->
-	</div>  				  
-	</div>
-</section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    
-    <strong>Copyright &copy; 2019-2020 </strong> All rights reserved. Designed & Developed By <a href="http://onnetsolution.com">Onnet Solution Infotech Pvt. Ltd.</a>.
-  </footer>
+
+        <!-- /.box -->
+      </div>
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $page_title; ?> List</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <div class="box-body" id="show">
+
+
+          </div>
+          <!-- /.box body -->
+        </div>
+        <!-- /.box -->
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+
+  <strong>Copyright &copy; 2019-2020 </strong> All rights reserved. Designed & Developed By <a href="http://onnetsolution.com">Onnet Solution Infotech Pvt. Ltd.</a>.
+</footer>
 
 
 </div>
@@ -163,21 +162,16 @@ function searchForId($id, $array,$chkfld,$sendfld) {
 <link rel="stylesheet" href="chosen.css">
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
-	
-	<script>
 
-
-
-function show()
-{
-	$('#show').load("test_list.php").fadeIn('fast');
-}
-$(document).ready(function()
-{
-show();
-});
-
-	</script>
+<script>
+  function show() {
+    $('#show').load("test_list.php").fadeIn('fast');
+  }
+  $(document).ready(function() {
+    show();
+  });
+</script>
 
 </body>
+
 </html>

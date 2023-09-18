@@ -167,7 +167,7 @@ else
 <body class="hold-transition login-page">
 <div class="login-box">
 <center>
-<img src="pic/logo-icon.png" class="img-circle" style="height:100px; width:100px;"  alt="">
+<img src="images/logo.png" class="img" style="height:100px; width:100px;"  alt="">
 </center>
 
   <div class="login-logo">

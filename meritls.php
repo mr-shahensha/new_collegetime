@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fast Apply : New CollegeTime</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>Merit List : New CollegeTime</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="admin/images/logo.png" rel="icon">
-  <link href="admin/images/logo.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="admin/images/logo.png" rel="icon">
+    <link href="admin/images/logo.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -43,7 +43,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
 
-        <a class=" me-auto" href="index.html"><img  width="100px;" src="admin/images/logo.png" alt="logo"></a>
+            <a class=" me-auto" href="index.html"><img width="100px;" src="admin/images/logo.png" alt="logo"></a>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -55,7 +55,7 @@
                     <li><a href="trainers.html">Trainers</a></li>
                     <li><a href="events.html">Events</a></li>
                     <!-- <li><a href="pricing.html">Pricing</a></li> -->
-                    <li><a href="meritls.php">Merit List</a></li>
+                    <li><a href="meritls.php" class="active">Merit List</a></li>
 
                     <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -74,12 +74,12 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a class="active" href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
-            <a href="courses.html" class="get-started-btn">Fast Apply</a>
+            <a href="aply.php" class="get-started-btn">Fast Apply</a>
 
         </div>
     </header><!-- End Header -->
@@ -89,8 +89,8 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs" data-aos="fade-in">
             <div class="container">
-                <h2>Apply for admission</h2>
-                <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+                <h2>Merit List</h2>
+                <p>Thank you for apply in college time .</p>
             </div>
         </div><!-- End Breadcrumbs -->
 
@@ -99,94 +99,64 @@
             <!-- <div data-aos="fade-up">
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
       </div> -->
-<style>
-    .padd{
-        padding: 10px;
-    }
-</style>
+            <style>
+                .padd {
+                    padding: 10px;
+                }
+            </style>
             <div class="container" data-aos="fade-up">
                 <div class="box-body">
-                    <form class="form-bordered" action="submit_aply.php" method="POST">
+                    <?php
+                    ini_set("display_errors", "1");
+                    error_reporting(E_ALL);
+                    include "admin/include.class.php";
+                    $fld1['stat'] = '1';
+                    $op1['stat'] = "=, ";
 
-                        <div class="row">
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Name :
-                                    </b>
-                                </label>
-                                <input type="text" id="nm" name="nm" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Age :
-                                    </b>
-                                </label>
-                                <input type="text" id="age" name="age" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Date of birth :
-                                    </b>
-                                </label>
-                                <input type="date" id="dob" name="dob" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Phone Number :
-                                    </b>
-                                </label>
-                                <input type="number" id="num" name="num" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618"></font>Email Address :
-                                    </b>
-                                </label>
-                                <input type="email" id="eml" name="eml" class="form-control" value="" style="width:100%" placeholder="Type Here" >
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Previous School Name :
-                                    </b>
-                                </label>
-                                <input type="text" id="prvsc" name="prvsc" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Madhyamik Marks :
-                                    </b>
-                                </label>
-                                <input type="text" id="mMarks" name="mMarks" class="form-control" value="" style="width:100%" placeholder="Type Here" required>
-                            </div>
-                            <div class="form-group col-md-6 padd">
-                                <label>
-                                    <b>
-                                        <font color="#ed2618">*</font>Apply for stream :
-                                    </b>
-                                </label>
-                                <select id="strm" name="strm" style="width:100%" class="form-control" required>
-                                    <option value="">****Select*****</option>
-                                    <option value="arts">Arts</option>
-                                    <option value="commerce">Commerce</option>
-                                    <option value="science">Science</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-12" align="center">
-                                <br>
-                                <input type="submit" class="btn btn-success" style="width:60%" value="SUBMIT">
-                            </div>
-                        </div>
-                        <input type="hidden" name="table_name" value="main_apply">
-                        <input type="hidden" name="page_name" value="aply.php">
+                    $list1  = new Init_Table();
+                    $list1->set_table("main_apply", "sl");
+                    $row = $list1->search_custom($fld1, $op1, '', array('mMarks' => 'DESC'));
+                    $path1 = "";
+                    ?>
+                    <table class="table table-stripped">
+                        <tr>
+                            <td width="5%" align="center"><b>SL</b></td>
+                            <td width="10%" align="center"><b>Name</b> </td>
+                            <td width="10%" align="center"><b>Date of Birth</b> </td>
+                            <td width="10%" align="center"><b>Email</b> </td>
+                            <td width="15%" align="center"><b>Preivous School</b> </td>
+                            <td width="15%" align="center"><b>Madhyamik Marks</b> </td>
+                            <td width="10%" align="center"><b>Applied Stream</b> </td>
+                            <!-- <td width="10%" align="center"><b>Action</b> </td> -->
+                        </tr>
+                        <?php
+                        $cnt = 0;
+                        $pdo = new MainPDO();
+                        foreach ($row as $value) {
+                            $cnt++;
+                            $sl = $value['sl'];
+                        ?>
+                            <tr>
+                                <td align="center"><?php echo $cnt; ?></td>
+                                <td align="center"><?php echo $value['nm']; ?></td>
+                                <td align="center"><?php echo $value['dob']; ?></td>
+                                <td align="center"><?php echo $value['eml']; ?></td>
+                                <td align="center"><?php echo $value['prvsc']; ?></td>
+                                <td align="center"><?php echo $value['mMarks']; ?></td>
+                                <td align="center"><?php echo $value['strm']; ?></td>
 
-                    </form>
+                                <!-- <td align="center">
+                <button class="btn btn-success btn-xs" onclick="ac('0','<?php echo $sl; ?>')">Accept</button>
+                <button class="btn btn-danger btn-xs" onclick="ac('1','<?php echo $sl; ?>')">Reject</button>
+
+            </td> -->
+                            </tr>
+                        <?php
+                        }
+                        ?>
+
+                    </table>
+
                 </div>
 
             </div>
